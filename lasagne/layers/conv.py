@@ -447,12 +447,15 @@ class Conv2DLayer(Layer):
         else:
             raise RuntimeError("Invalid border mode: '%s'" % self.border_mode)
 
+        self.tag_intermediate(conved, "conv")
+
         if self.b is None:
             activation = conved
         elif self.untie_biases:
             activation = conved + self.b.dimshuffle('x', 0, 1, 2)
         else:
             activation = conved + self.b.dimshuffle('x', 0, 'x', 'x')
+        self.tag_intermediate(activation, "activation")
 
         return self.nonlinearity(activation)
 

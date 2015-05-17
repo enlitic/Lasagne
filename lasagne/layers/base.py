@@ -216,6 +216,14 @@ class Layer(object):
                                "a numpy array, a Theano shared variable, or a "
                                "callable")
 
+    def tag_intermediate(self, inter_expr, inter_name):
+        """Adds a name to the theano intermediate expression 'inter_expr'
+        based on combining the layer name (if an) with inter_name"""
+        if self.name is not None:
+            inter_expr.name = "%s_%s" % (self.name, inter_name)
+        else:
+            inter_expr.name = inter_name
+
 
 class MergeLayer(Layer):
     """
@@ -295,3 +303,4 @@ class MergeLayer(Layer):
             `NotImplementedError`.
         """
         raise NotImplementedError
+    

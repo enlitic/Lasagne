@@ -79,8 +79,12 @@ class DenseLayer(Layer):
             input = input.flatten(2)
 
         activation = T.dot(input, self.W)
+        self.tag_intermediate(activation, "dotprod")
+        
         if self.b is not None:
             activation = activation + self.b.dimshuffle('x', 0)
+            self.tag_intermediate(activation, "bias")
+            
         return self.nonlinearity(activation)
 
 
@@ -192,6 +196,7 @@ class NINLayer(Layer):
     def get_output_for(self, input, **kwargs):
         # cf * bc01... = fb01...
         out_r = T.tensordot(self.W, input, axes=[[0], [1]])
+        
         # input dims to broadcast over
         remaining_dims = range(2, input.ndim)
         # bf01...

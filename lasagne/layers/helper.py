@@ -217,6 +217,8 @@ def get_output(layer_or_layers, inputs=None, **kwargs):
                                  "mapping this layer to an input expression."
                                  % layer)
             all_outputs[layer] = layer.get_output_for(layer_inputs, **kwargs)
+            layer.tag_intermediate(all_outputs[layer], "output")
+
     # return the output(s) of the requested layer(s) only
     try:
         return [all_outputs[layer] for layer in layer_or_layers]
@@ -495,3 +497,4 @@ def set_all_param_values(layer, values):
                          (len(values), len(params)))
     for p, v in zip(params, values):
         p.set_value(v)
+
