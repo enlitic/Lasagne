@@ -3,9 +3,17 @@
 
 .. automodule:: lasagne.objectives
 
-.. autofunction:: mse
-.. autofunction:: crossentropy
-.. autofunction:: multinomial_nll
 
-.. autoclass:: Objective
-   :members:
+Loss functions
+--------------
+
+.. autofunction:: binary_crossentropy
+.. autofunction:: categorical_crossentropy
+.. autofunction:: squared_error
+
+
+Aggregation functions
+---------------------
+
+.. autofunction:: aggregate
+

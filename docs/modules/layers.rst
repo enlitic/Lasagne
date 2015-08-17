@@ -3,125 +3,183 @@
 
 .. automodule:: lasagne.layers
 
+.. toctree::
+    :hidden:
 
-Helper functions
-----------------
+    layers/helper
+    layers/base
+    layers/input
+    layers/dense
+    layers/conv
+    layers/pool
+    layers/recurrent
+    layers/noise
+    layers/shape
+    layers/merge
+    layers/embedding
+    layers/special
+    layers/corrmm
+    layers/cuda_convnet
+    layers/dnn
+   
 
-.. autofunction:: get_all_layers
-.. autofunction:: get_all_params
-.. autofunction:: get_all_bias_params
-.. autofunction:: get_all_non_bias_params
-.. autofunction:: count_params
-.. autofunction:: get_all_param_values
-.. autofunction:: set_all_param_values
+.. rubric:: :doc:`layers/helper`
 
+.. autosummary::
+    :nosignatures:
 
-Layer base classes
-------------------
-
-.. autoclass:: Layer
-   :members:
-
-.. autoclass:: MultipleInputsLayer
-    :members:
-
-Layer classes: network input
-----------------------------
-
-.. autoclass:: InputLayer
-   :members:
-
-Layer classes: dense layers
----------------------------
-
-.. autoclass:: DenseLayer
-   :members:
-
-.. autoclass:: NINLayer
-    :members:
-
-Layer classes: convolutional layers
------------------------------------
-
-.. autoclass:: Conv1DLayer
-    :members:
-
-.. autoclass:: Conv2DLayer
-    :members:
-
-Layer classes: pooling layers
------------------------------
-
-.. autoclass:: MaxPool2DLayer
-    :members:
-
-.. autoclass:: GlobalPoolLayer
-    :members:
-
-.. autoclass:: FeaturePoolLayer
-    :members:
-
-.. autoclass:: FeatureWTALayer
-    :members:
-
-Layer classes: noise layers
----------------------------
-
-.. autoclass:: DropoutLayer
-    :members:
-
-.. autofunction:: dropout
-
-.. autoclass:: GaussianNoiseLayer
-    :members:
-
-Layer classes: shape layers
----------------------------
-
-.. autoclass:: ReshapeLayer
-    :members:
-
-.. autofunction:: reshape
-
-.. autoclass:: FlattenLayer
-    :members:
-
-.. autofunction:: flatten
-
-.. autoclass:: PadLayer
-    :members:
-
-.. autofunction:: pad
-
-Layer classes: merge layers
----------------------------
-
-.. autoclass:: ConcatLayer
-    :members:
-
-.. autofunction:: concat
-
-.. autoclass:: ElemwiseSumLayer
-    :members:
+    get_output
+    get_output_shape
+    get_all_layers
+    get_all_params
+    count_params
+    get_all_param_values
+    set_all_param_values
 
 
-:mod:`lasagne.layers.corrmm`
-==================================
+.. rubric:: :doc:`layers/base`
 
-.. automodule:: lasagne.layers.corrmm
-    :members:
+.. autosummary::
+    :nosignatures:
 
-
-:mod:`lasagne.layers.cuda_convnet`
-==================================
-
-.. automodule:: lasagne.layers.cuda_convnet
-    :members:
+    Layer
+    MergeLayer
 
 
-:mod:`lasagne.layers.dnn`
-==================================
+.. rubric:: :doc:`layers/input`
 
-.. automodule:: lasagne.layers.dnn
-    :members:
+.. autosummary::
+    :nosignatures:
+
+    InputLayer
+
+
+.. rubric:: :doc:`layers/dense`
+
+.. autosummary::
+    :nosignatures:
+
+    DenseLayer
+    NonlinearityLayer
+    NINLayer
+
+
+.. rubric:: :doc:`layers/conv`
+
+.. autosummary::
+    :nosignatures:
+
+    Conv1DLayer
+    Conv2DLayer
+
+
+.. rubric:: :doc:`layers/pool`
+
+.. autosummary::
+    :nosignatures:
+
+    MaxPool1DLayer
+    MaxPool2DLayer
+    Pool2DLayer
+    GlobalPoolLayer
+    FeaturePoolLayer
+    FeatureWTALayer
+
+
+.. rubric:: :doc:`layers/recurrent`
+
+.. autosummary::
+    :nosignatures:
+
+    CustomRecurrentLayer
+    RecurrentLayer
+    LSTMLayer
+    GRULayer
+    Gate
+
+
+.. rubric:: :doc:`layers/noise`
+
+.. autosummary::
+    :nosignatures:
+
+    DropoutLayer
+    dropout
+    GaussianNoiseLayer
+
+
+.. rubric:: :doc:`layers/shape`
+
+.. autosummary::
+    :nosignatures:
+
+    ReshapeLayer
+    reshape
+    FlattenLayer
+    flatten
+    DimshuffleLayer
+    dimshuffle
+    PadLayer
+    pad
+    SliceLayer
+
+
+.. rubric:: :doc:`layers/merge`
+
+.. autosummary::
+    :nosignatures:
+
+    ConcatLayer
+    concat
+    ElemwiseMergeLayer
+    ElemwiseSumLayer
+
+
+.. rubric:: :doc:`layers/embedding`
+
+.. autosummary::
+    :nosignatures:
+
+    EmbeddingLayer
+
+
+.. rubric:: :doc:`layers/special`
+
+.. autosummary::
+    :nosignatures:
+
+    InverseLayer
+    TransformerLayer
+
+
+.. rubric:: :doc:`layers/corrmm`
+
+.. autosummary::
+    :nosignatures:
+
+    corrmm.Conv2DMMLayer
+
+
+.. rubric:: :doc:`layers/cuda_convnet`
+
+.. autosummary::
+    :nosignatures:
+
+    cuda_convnet.Conv2DCCLayer
+    cuda_convnet.MaxPool2DCCLayer
+    cuda_convnet.ShuffleBC01ToC01BLayer
+    cuda_convnet.bc01_to_c01b
+    cuda_convnet.ShuffleC01BToBC01Layer
+    cuda_convnet.c01b_to_bc01
+    cuda_convnet.NINLayer_c01b
+
+
+.. rubric:: :doc:`layers/dnn`
+
+.. autosummary::
+    :nosignatures:
+
+    dnn.Conv2DDNNLayer
+    dnn.MaxPool2DDNNLayer
+    dnn.Pool2DDNNLayer
 
