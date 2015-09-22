@@ -60,7 +60,6 @@
     :nosignatures:
 
     DenseLayer
-    NonlinearityLayer
     NINLayer
 
 
@@ -80,7 +79,9 @@
 
     MaxPool1DLayer
     MaxPool2DLayer
+    Pool1DLayer
     Pool2DLayer
+    Upscale2DLayer
     GlobalPoolLayer
     FeaturePoolLayer
     FeatureWTALayer
@@ -148,6 +149,8 @@
 .. autosummary::
     :nosignatures:
 
+    NonlinearityLayer
+    BiasLayer
     InverseLayer
     TransformerLayer
 

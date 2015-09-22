@@ -87,11 +87,26 @@ def test_recurrent_tensor_init():
     assert isinstance(output_val, np.ndarray)
 
 
+def test_recurrent_incoming_tuple():
+    input_shape = (2, 3, 4)
+    l_rec = lasagne.layers.RecurrentLayer(input_shape, 5)
+    assert l_rec.input_shapes[0] == input_shape
+
+
 def test_recurrent_init_val_error():
     # check if errors are raised when init is non matrix tensor
     hid_init = T.vector()
     with pytest.raises(ValueError):
         l_rec = RecurrentLayer(InputLayer((2, 2, 3)), 5, hid_init=hid_init)
+
+
+def test_recurrent_name():
+    l_in = lasagne.layers.InputLayer((2, 3, 4))
+    layer_name = 'l_rec'
+    l_rec = lasagne.layers.RecurrentLayer(l_in, 4, name=layer_name)
+    assert l_rec.b.name == layer_name + '.input_to_hidden.b'
+    assert l_rec.W_in_to_hid.name == layer_name + '.input_to_hidden.W'
+    assert l_rec.W_hid_to_hid.name == layer_name + '.hidden_to_hidden.W'
 
 
 def test_custom_recurrent_arbitrary_shape():
